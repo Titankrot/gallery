@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 import django_heroku
 
 
@@ -89,8 +88,6 @@ DATABASES = {
         'NAME': 'mydatabase',
     }
 }
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
