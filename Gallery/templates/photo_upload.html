@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Upload</title>
+    <link rel="stylesheet" href='{% static "index.css" %}'>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__h1">Gallery</h1>
+      <button class="button-style" onclick="window.location.href = '/'">Main page</button>
+    </header>
+    <div class="flex-wrap">
+    	<form class="form" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <label class="form__button-wrap"><button class="form__button button-style" type="submite">Upload</button></label>
+      </form>
+    </div>
+  </body>
+</html>

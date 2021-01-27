@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href='{% static "index.css" %}'>
+    <script type="text/javascript" src='{% static "lazy.js" %}'></script>
+  </head>
+  <body>
+  	<header class="header">
+      <h1 class="header__h1">Gallery</h1>
+  		<div class="log-block">
+        {% if unauthorised %}
+          <button class="log-block__log-button button-style" onclick="window.location.href = 'login/'">Login</button>
+        {% else %}
+        <button class="log-block__log-button button-style" onclick="window.location.href = 'logout/'">Logout</button>
+        <button class="log-block__log-button button-style" onclick="window.location.href = 'upload/'">Upload Photo</button>
+        {% endif %}
+      </div>
+  	</header>
+  	<div class="grid-wrap">
+      {% for image in image_list %}
+        <a href="#openModal-{{ image.name }}" onclick="loadLazyModal(this.nextElementSibling)" class="grid-wrap__image-wrap"><img class="grid-wrap__image lazy" data-src="{{ MEDIA_URL }}{{ image.preview_image }}" alt="{{ image.name }}-preview"></a>
+        <div id="openModal-{{ image.name }}" class="modalDialog">
+          <a href="#close" title="Закрыть" class="modalDialog__close"><div class="modalDialog__close-div"></div></a>
+          <div class="modalDialog__image-wrap">
+            <img data-src="{{ MEDIA_URL }}{{ image.main_image }}" alt="{{ image.name }}" class="modalDialog__image lazy-modal">
+            <p class="modalDialog__info">{{ image.name }}</p>
+          </div>
+        </div>
+      {% endfor %}
+  	</div>
+  </body>
+</html>

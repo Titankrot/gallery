@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href='{% static "index.css" %}'>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__h1">Gallery</h1>
+      <button class="button-style" onclick="window.location.href = '/'">Main page</button>
+    </header>
+    <div class="flex-wrap">
+    	<form class="form" method='post'>
+        {% csrf_token %}
+        <legend class="form__legend">Registration</legend>
+        <label class="form__label"><input class="form__input" type="text" name="username" placeholder="Username"></label>
+        <label class="form__label"><input class="form__input" type="password" name="password1" placeholder="Password"></label>
+        <label class="form__label"><input class="form__input" type="password" name="password2" placeholder="Repeat your password"></label>
+        <label class="form__button-wrap"><button class="form__button button-style" type="submite">Registrate</button></label>
+        {% if incorrect_password %}<p class="form__p">Incorrect password</p>{% endif %}
+        {% if incorrect_password_match %}<p class="form__p">Passwords don't match</p>{% endif %}
+        {% if incorrect_username %}<p class="form__p">Incorrect username</p>{% endif %}
+      </form>
+    </div>
+  </body>
+</html>

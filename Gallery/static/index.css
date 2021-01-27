@@ -1,0 +1,137 @@
+:root {
+	--header-height: 50px;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	background-color: #faf0e6;
+}
+
+.header {
+	position: fixed;
+	height: var(--header-height);
+	box-shadow: 0 0 5px black;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	background-color: #00d176;
+}
+.header__h1 {
+	margin: auto;
+}
+.grid-wrap {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	grid-template-rows: repeat(auto-fit, 1fr);
+	grid-gap: 20px;
+	margin: 0 10px 10px 10px;
+}
+.grid-wrap, .flex-wrap {
+	padding-top: calc(var(--header-height) + 10px);
+}
+.grid-wrap__image-wrap {
+	width: 100%;
+	min-height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.grid-wrap__image {
+	width: 100%;
+}
+::-webkit-scrollbar { width: 0;}
+
+
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 101;
+  display: none;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  display: flex;
+
+  pointer-events: auto;
+}
+
+.modalDialog__image-wrap {
+  max-width: 70%;
+  max-height: 90%;
+  margin: auto;
+  position: relative;
+  padding: 5px 20px 13px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modalDialog__close-div{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.modalDialog__image {
+  height: 100%;
+  width: 100%;
+  max-height: 70vh;
+
+  object-fit: contain;
+}
+
+.modalDialog__info {
+	color: white;
+}
+
+.flex-wrap {
+	display: flex;
+	width: 100%;
+	height: calc(100vh - var(--header-height));
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	padding: 10px;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 250px;
+	min-height: 200px;
+	border: none;
+	border-radius: 5px;
+	background-color: #00d176;
+	box-shadow: 0 0 5px black;
+}
+
+.form__input {
+	border: none;
+	border-radius: 2px;
+	box-shadow: 0 0 2px black;
+}
+
+.form__label, .form__button-wrap, .form__button, .form__input {
+	width: 100%;
+}
+
+.button-style {
+	height: 40px;
+	min-width: 100px;
+	border: none;
+	border-radius: 2px;
+	overflow: hidden;
+	background-color: #afdafc;
+	box-shadow: 0 0 5px black;
+	margin: 0 10px 0 0;
+}
