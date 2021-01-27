@@ -26,7 +26,7 @@ SECRET_KEY = '(7#%f3k%rs_vod9*@!pv@jkgb2xke0(dz0fj=(g)k3)@fss5+x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,12 +76,10 @@ WSGI_APPLICATION = 'site_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+import dj-database-url
+
+db_from_env = dj-database-url.config()
+DATABASE['default'].update(db_from_env)
 
 
 # Password validation
